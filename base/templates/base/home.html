@@ -1,4 +1,6 @@
-{% include 'navbar.html' %}
+{% extends 'main.html' %}
+
+{% block content %}
 
 <style>
     .home-container {
@@ -6,6 +8,7 @@
         grid-template-columns: 1fr 3fr 1fr;
     }
 </style>
+
 
 <div class="home-container">
     <div>
@@ -24,3 +27,5 @@
         {% include 'base/activity_comp.html' %}
     </div>
 </div>
+
+{% endblock content %}

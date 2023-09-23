@@ -1,5 +1,6 @@
-{% include 'navbar.html' %}
+{% extends 'main.html' %}
 
+{% block content %}
 
 <style>
     .profile-container{
@@ -23,3 +24,5 @@
         {% include 'base/activity_comp.html' %}
     </div>
 </div>
+
+{% endblock content %}

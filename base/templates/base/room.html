@@ -1,4 +1,6 @@
-{% include 'navbar.html' %}
+{% extends 'main.html' %}
+
+{% block content %}
 
 <style>
     .room-container {
@@ -49,3 +51,5 @@
         {% endfor %}
     </div>
 </div>
+
+{% endblock content %}

@@ -1,5 +1,6 @@
-{% include 'navbar.html' %}
+{% extends 'main.html' %}
 
+{% block content %}
 
 {% if page == 'login' %}
 
@@ -31,3 +32,5 @@
     <a href="{% url 'login' %}">Login</a>
 </div>
 {% endif %}
+
+{% endblock content %}
