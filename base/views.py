@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.contrib.auth.models import User
 from .models import Room, Topic, Message
-from .forms import RoomForm
+from .forms import RoomForm, UpdateForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -157,4 +157,15 @@ def delete_message(request, pk):
 
 @login_required(login_url=login)
 def update_user(request):
-    return render(request, 'base/update_user.html')
+    user = request.user
+    form = UpdateForm(instance=user)
+    if request.method == 'POST':
+        form = UpdateForm(request.POST, instance=user)
+        
+        if form.is_valid():
+
+            print("Form is valid!")
+            form.save()
+            print("Form is saved!")
+            return redirect('user_profile', pk=user.id)
+    return render(request, 'base/update_user.html', {'form': form})
